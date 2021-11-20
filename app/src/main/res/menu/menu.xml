@@ -12,6 +12,9 @@
     <item android:id="@+id/action_fav"
         android:title="@string/title_fav"
         android:icon="@drawable/fav"
-        android:orderInCategory="5"
         app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_share"
+        android:title="Shared"
+        app:showAsAction="ifRoom"
+        app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider" />
 </menu>

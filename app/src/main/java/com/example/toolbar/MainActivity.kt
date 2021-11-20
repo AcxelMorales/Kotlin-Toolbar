@@ -15,6 +15,9 @@ import android.widget.Toast
 
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.ShareActionProvider
+
+import androidx.core.view.MenuItemCompat
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,6 +45,11 @@ class MainActivity : AppCompatActivity() {
 
         val searchItem = menu.findItem(R.id.search)
         var searchView = searchItem.actionView as SearchView
+
+        val shareItem = menu.findItem(R.id.action_share)
+        var shareActionProvider = MenuItemCompat.getActionProvider(shareItem) as ShareActionProvider
+
+        this.shareIntent(shareActionProvider)
 
         searchView.queryHint = "Write your name ...."
 
@@ -79,6 +87,13 @@ class MainActivity : AppCompatActivity() {
                 super.onOptionsItemSelected(item)
             }
         }
+    }
+
+    private fun shareIntent(shareActionProvider: ShareActionProvider) {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, "This is share message")
+        shareActionProvider.setShareIntent(intent)
     }
 
 }
