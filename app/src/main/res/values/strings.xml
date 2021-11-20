@@ -3,4 +3,5 @@
     <string name="title_fav">Favorite</string>
     <string name="title_backup">Backup</string>
     <string name="text_btn_go">Go to favorites</string>
+    <string name="title_search">Search</string>
 </resources>
