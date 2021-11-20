@@ -1,10 +1,13 @@
 package com.example.toolbar
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 import android.view.Menu
 import android.view.MenuItem
+
+import android.widget.Button
 import android.widget.Toast
 
 import androidx.appcompat.widget.Toolbar
@@ -21,6 +24,13 @@ class MainActivity : AppCompatActivity() {
         toolbar?.setTitle(R.string.app_name)
 
         setSupportActionBar(toolbar)
+
+        val btn = findViewById<Button>(R.id.btnGo)
+
+        btn.setOnClickListener {
+            val intent = Intent(this, FavActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
